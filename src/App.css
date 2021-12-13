@@ -93,7 +93,8 @@ p.copy {
 	font-weight: 300;
 	font-size: var(--body-size);
 	/* line-height: 1; */
-	margin: 0;
+	margin: 0 auto;
+	max-width: 640px;
 }
 
 a.main {
@@ -110,7 +111,7 @@ a.main {
 	grid-template-rows: 1fr; */
 	flex-wrap: wrap;
 	margin: auto;
-	/* width: 100%; */
+	width: 100%;
 	max-width: 720px;
 	place-items: center;
 	place-content: center;

@@ -102,6 +102,76 @@ export class App extends React.Component<Props, State> {
 						<div className="project">
 							<div className="project-info">
 								<h1 className="title">June</h1>
+								<h4>July - Winter 2020</h4>
+								<h2 className="heading">About</h2>
+								<p className="copy">In 2006, Microsoft released the Zune. It was an interesting take on the portable music player, and by 2008 the visual style had evolved into what many today would recognise as "Metro", Microsoft's attempt at an ultra-minimalist user interface/experience. Zune was perhaps the best implmentation of the Metro design language, with a look that still feels modern and timeless today, 12 years later.</p>
+								<p className="copy">However, the Zune devices were discontinued in 2011, and the desktop software stopped receiving updates in 2012.</p>
+								<p className="copy">In 2020, I took Zune as a visual base, and attempted to build my own music playing software that could stand toe-to-toe with iTunes and WinAmp.</p>
+								<p className="copy">In some ways, I succeeded (The Windows version could play multiple tracks seamlessly, and on both Windows and Mac OS the music database was reliable and highly performant).</p>
+								<h2 className="heading">Frameworks</h2>
+								<h3 className="heading">Desktop:</h3>
+								<ul>
+									<li>React</li>
+									<li>Complex CSS</li>
+									<li>Electron</li>
+									<li>Node.JS</li>
+								</ul>
+								<h3 className="heading">Mobile:</h3>
+								<ul>
+									<li>React Native</li>
+								</ul>
+								<h2 className="heading">Platforms</h2>
+								<ul>
+									<li>Windows</li>
+									<li>Mac OS (Prototype)</li>
+									<li>Linux (Theoretical - Untested)</li>
+									<li>Android (Prototype)</li>
+									<li>iOS (Prototype)</li>
+								</ul>
+								<h2 className="heading">Notable Libraries/APIs Used</h2>
+								<ul>
+									<li>SQLite</li>
+								</ul>
+							</div>
+							<div className="project-showcase">
+								<section>
+									<h2 className="title">Website Concept</h2>
+									<p className="copy">(Click to enlarge)</p>
+									<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Website Concept.png")?.default} />
+								</section>
+								<section>
+									<h2 className="title">Mobile Concepts</h2>
+									<p className="copy">(Click to enlarge)</p>
+									<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Home.png")?.default} />
+									<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Now Playing.png")?.default} />
+									<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Quickplay - With Pins.png")?.default} />
+								</section>
+								<section>
+									<h2 className="title">Desktop Application</h2>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div className="page" style={{ opacity: this.state.showProjects ? 1 : 0 }}>
+						<div className="project">
+							<div className="project-info">
+								<h1 className="title">MobileTrainTimes</h1>
+								<h4>August - December 2020</h4>
+								<h2 className="heading">About</h2>
+								<p className="copy">In addition to computers, I have been interested in trains for about as long as I can remember. MobileTrainTimes is an amalgamation of two of those two interests; It is designed to be the simplest, most elegant rail journey planning and information app available.</p>
+								<h2 className="heading">Frameworks</h2>
+								<ul>
+									<li>React Native</li>
+								</ul>
+								<h2 className="heading">Platforms</h2>
+								<ul>
+									<li>Android</li>
+									<li>iOS</li>
+								</ul>
+								<h2 className="heading">Notable Libraries/APIs Used</h2>
+								<ul>
+									<li>Huxley 2 - For interfacing with the National Rail Enquiries "Darwin" system.</li>
+								</ul>
 							</div>
 							<div className="project-showcase">
 								<div style={{ height: "200vh" }} />

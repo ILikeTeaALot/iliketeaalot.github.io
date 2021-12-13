@@ -4,6 +4,7 @@
 	--heading-size: 0;
 	--body-size: clamp(16px, 5vw, 20px);
 	--big-link-size: clamp(30px, 15vw, 40px);
+	--small-link-size: clamp(20px, 10vw, 30px);
 }
 
 #dynamic-background {
@@ -21,12 +22,12 @@
 }
 
 .navbar {
-	position: fixed;
-	box-sizing: border-box;
+	position: sticky;
+	/* box-sizing: border-box;
 	width: 100vw;
 	top: 0;
 	left: 0;
-	right: 0;
+	right: 0; */
 	background-color: inherit;
 	z-index: 10000;
 }
@@ -63,9 +64,10 @@ h1.signature::after {
 
 h2.signature {
 	font-size: var(--title-size);
+	line-height: 1.25;
 	overflow: hidden;
 	transition-duration: 800ms;
-	width: 100%;
+	/* width: 100%; */
 	display: flex;
 	justify-content: center;
 	position: sticky;
@@ -99,35 +101,49 @@ a.main {
 }
 
 .links {
+	position: sticky;
+	top: calc(var(--title-size) * 1.25);
 	font-size: var(--big-link-size);
+	line-height: 1.5;
 	display: flex;
 	/* grid-template-columns: repeat(auto-fill, minmax(, 1fr));
 	grid-template-rows: 1fr; */
 	flex-wrap: wrap;
 	margin: auto;
-	width: 100%;
+	/* width: 100%; */
 	max-width: 720px;
 	place-items: center;
 	place-content: center;
 	text-align: center;
+	z-index: 9999;
+}
+
+.links.small {
+	font-size: var(--small-link-size);
 }
 
 .links div {
 	width: clamp(160px, 60vw, 240px);
+	transition-duration: 800ms;
+}
+
+.links.small div {
+	width: clamp(120px, 40vw, 160px);
 }
 
 .links a {
 	margin: 0 auto;
 	font-weight: 200;
 	place-self: center;
+	transition-duration: 800ms;
 }
 
 .front-page {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
-	flex: 0;
-	min-height: 100vh;
-	max-height: 100vh;
+	flex: 0; */
+	min-height: 50vh;
+	max-height: 50vh;
 }
 
 .front-page > div {
@@ -139,8 +155,8 @@ a.main {
 	max-height: 50vh;
 }
 
-.front-page .padding {
-	height: 10vh;
+.padding {
+	height: 20vh;
 }
 
 .page {
@@ -184,7 +200,8 @@ h1, h2, h3, h4, h5, h6 {
 	top: 0;
 	bottom: 0;
 	max-width: 360px;
-	width: 360px;
+	flex: 1;
+	flex-grow: 1;
 	height: 100vh;
 	box-sizing: border-box;
 	border-right-width: 1px;
@@ -198,4 +215,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-showcase {
 	flex: 1;
+}
+
+.invisible {
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
 }

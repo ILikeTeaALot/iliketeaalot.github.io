@@ -17,12 +17,17 @@ export class App extends React.Component<Props, State> {
 		this.state = {
 			scrollPosition: window.scrollY,
 			showProjects: false,
-		}
+		};
 	}
 
 	doNothing: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
 		e.preventDefault();
-	}
+	};
+
+	scrollToProjects: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+		e.preventDefault();
+		window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+	};
 
 	handleScroll = () => {
 		if (window.scrollY > window.innerHeight / 2) {
@@ -31,12 +36,12 @@ export class App extends React.Component<Props, State> {
 			document.body.style.backgroundColor = "var(--beige)";
 		}
 		this.setState({ scrollPosition: window.scrollY, showProjects: window.scrollY >= window.innerHeight / 2 });
-	}
+	};
 
 	componentDidMount = () => {
 		document.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleScroll);
-	}
+	};
 
 	componentWillUnmount = () => {
 		document.removeEventListener("scroll", this.handleScroll);
@@ -45,12 +50,17 @@ export class App extends React.Component<Props, State> {
 
 	signatureHeading = () => {
 		return (
-			<h2 className="signature">
-				<div style={{ maxWidth: this.state.showProjects ? "0" : "5ch", opacity: this.state.showProjects ? 0 : 1, justifyContent: "flex-end" }}>I'm </div>
+			<h2 className="signature" aria-hidden>
+				<div style={{ maxWidth: this.state.showProjects ? "0" : "4ch", opacity: this.state.showProjects ? 0 : 1, justifyContent: "flex-end" }}>I'm </div>
 				<div>Madeline Hart.</div>
 			</h2>
 		);
 	};
+
+	// Smaller numbers result in large-size links further down the page
+	// Original divisor was 1.4; It was too accurate
+	// Good values: 1.2, 1.4, 1.5
+	useSmallLinks = () => this.state.scrollPosition >= window.innerHeight / 1.4;
 
 	render() {
 		// <nav className="navbar" style={{ opacity: this.state.showProjects ? 1 : 0, /* transitionDelay: this.state.showProjects ? "820ms" : "0ms" */ }}>{this.signatureHeading()}</nav>
@@ -58,24 +68,28 @@ export class App extends React.Component<Props, State> {
 			<>
 				{/* <div id="dynamic-background" style={{ background: this.state.scrollPosition > window.innerHeight / 2 ? "#FFFFFF" : "var(--beige)" }} /> */}
 				<div className="main">
-					<div style={{ position: "sticky", top: "50vh", height: 0, overflow: "visible" }}>{this.signatureHeading()}</div>
 					<div className="front-page">
 						{/* Navbar was here */}
 						<div style={{ justifyContent: "flex-end", alignContent: "center" }}>
 							<h1 className="signature">hello</h1>
 						</div>
+					</div>
+					<div className="navbar" style={{ top: 0, overflow: "visible", backgroundColor: "inherit" }}>{this.signatureHeading()}</div>
+					<div style={{ height: "20vh" }}>
+						{/* <h2 className="signature invisible">I'm Madeline Hart.</h2> */} {/* accomodate accessibilty and layout */}
 						<div style={{ justifyContent: "flex-start", alignContent: "center" }}>
 							{/* <h2 className="signature">I'm Madeline Hart.</h2> */}
 							{/* {this.signatureHeading()} */}
 							<p className="copy">I make websites, and this is my portfolio.</p>
-							<div className="links">
-								<div><a onClick={this.doNothing} href="/projects">projects</a></div>
-								<div><a onClick={this.doNothing} href="/concepts">concepts</a></div>
-								<div><a onClick={this.doNothing} href="/about">about</a></div>
-							</div>
-							<div className="padding" aria-hidden />
 						</div>
 					</div>
+					{/* TODO: Make work better on mobile */}
+					<div className={this.useSmallLinks() ? "navbar links small" : "navbar links"}>
+						<div><a onClick={this.doNothing} href="/contact">contact</a></div>
+						<div><a onClick={this.scrollToProjects} href="/projects">view projects</a></div>
+						<div><a onClick={this.doNothing} href="/about">about</a></div>
+					</div>
+					<div className="padding" aria-hidden />
 					<div className="page" style={{ opacity: this.state.showProjects ? 1 : 0 }}>
 						{/* <div>
 							<h1 className="heading">My work</h1>

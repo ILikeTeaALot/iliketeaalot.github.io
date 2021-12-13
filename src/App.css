@@ -1,10 +1,10 @@
 :root {
-	--big-title-size: clamp(40px, 40vw, 160px);
-	--title-size: clamp(20px, 10vw, 40px);
+	--big-title-size: clamp(2.5rem, 40vw, 10rem);
+	--title-size: clamp(1.25rem, 10vw, 2.5rem);
 	--heading-size: 0;
-	--body-size: clamp(16px, 5vw, 20px);
-	--big-link-size: clamp(30px, 15vw, 40px);
-	--small-link-size: clamp(20px, 10vw, 30px);
+	--body-size: clamp(1rem, 5vw, 1.25rem);
+	--big-link-size: clamp(1.875rem, 15vw, 2.5rem);
+	--small-link-size: clamp(1.25rem, 10vw, 1.875rem);
 }
 
 #dynamic-background {

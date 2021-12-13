@@ -16,7 +16,7 @@ export class App extends React.Component<Props, State> {
 		super(props);
 		this.state = {
 			scrollPosition: window.scrollY,
-			showProjects: false,
+			showProjects: window.scrollY >= window.innerHeight / 2,
 		};
 	}
 

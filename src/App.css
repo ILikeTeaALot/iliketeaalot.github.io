@@ -1,38 +1,201 @@
-.App {
-  text-align: center;
+:root {
+	--big-title-size: clamp(40px, 40vw, 160px);
+	--title-size: clamp(20px, 10vw, 40px);
+	--heading-size: 0;
+	--body-size: clamp(16px, 5vw, 20px);
+	--big-link-size: clamp(30px, 15vw, 40px);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#dynamic-background {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	padding: 0;
+	will-change: background;
+	transition-duration: 800ms;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+	position: fixed;
+	box-sizing: border-box;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: inherit;
+	z-index: 10000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+div.main {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 100vh;
+	text-align: center;
+	z-index: 2;
+	background-color: inherit;
 }
 
-.App-link {
-  color: #61dafb;
+div.main > div {
+	padding: 0 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.signature {
+	font-family: "Damion";
+}
+
+h1.signature {
+	font-size: var(--big-title-size);
+	line-height: 1;
+	overflow: visible;
+}
+
+h1.signature::after {
+	content: ".";
+	font-size: clamp(30px, 30vw, 120px);
+}
+
+h2.signature {
+	font-size: var(--title-size);
+	overflow: hidden;
+	transition-duration: 800ms;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	position: sticky;
+	top: 0;
+	white-space: pre;
+	/* line-height: 1; */
+}
+
+h2.signature > div {
+	/* display: flex; */
+	/* flex: 1; */
+	/* width: auto; */
+	/* overflow: hidden; */
+	/* flex-shrink: 1; */
+	/* margin: 0 auto; */
+	/* justify-content: flex-start; */
+	transition-duration: 800ms;
+	display: inline-flex;
+}
+
+p.copy {
+	font-family: "Jost";
+	font-weight: 300;
+	font-size: var(--body-size);
+	/* line-height: 1; */
+	margin: 0;
+}
+
+a.main {
+	flex: 1;
+}
+
+.links {
+	font-size: var(--big-link-size);
+	display: flex;
+	/* grid-template-columns: repeat(auto-fill, minmax(, 1fr));
+	grid-template-rows: 1fr; */
+	flex-wrap: wrap;
+	margin: auto;
+	width: 100%;
+	max-width: 720px;
+	place-items: center;
+	place-content: center;
+	text-align: center;
+}
+
+.links div {
+	width: clamp(160px, 60vw, 240px);
+}
+
+.links a {
+	margin: 0 auto;
+	font-weight: 200;
+	place-self: center;
+}
+
+.front-page {
+	display: flex;
+	flex-direction: column;
+	flex: 0;
+	min-height: 100vh;
+	max-height: 100vh;
+}
+
+.front-page > div {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	height: 50vh;
+	min-height: 50vh;
+	max-height: 50vh;
+}
+
+.front-page .padding {
+	height: 10vh;
+}
+
+.page {
+	min-height: 100vh;
+	display: flex;
+	overflow: visible;
+	opacity: 0;
+	will-change: opacity;
+	transition-duration: 800ms;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: normal;
+}
+
+.title, .heading {
+	font-family: "Jost";
+	font-weight: 500;
+}
+
+.title {
+	margin: 0.5em 0;
+	font-size: var(--title-size);
+}
+
+.heading {
+	margin: 0.5em 0;
+}
+
+
+
+.project {
+	display: flex;
+	justify-content: stretch;
+	align-self: stretch;
+}
+
+.project-info {
+	position: sticky;
+	top: 0;
+	bottom: 0;
+	max-width: 360px;
+	width: 360px;
+	height: 100vh;
+	box-sizing: border-box;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: var(--grey);
+	padding: 60px 0;
+	/* margin: 20px 0; */
+	mask-mode: alpha;
+	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60px, rgba(0, 0, 0, 1) calc(100% - 60px), rgba(0, 0, 0, 0) 100%);
+}
+
+.project-showcase {
+	flex: 1;
 }

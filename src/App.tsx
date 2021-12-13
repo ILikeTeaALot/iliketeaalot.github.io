@@ -184,7 +184,9 @@ export class App extends React.Component<Props, State> {
 								<h1 className="title">IsItWeekA.com</h1>
 								<h4>Dec 2020 - Present</h4>
 								<h2 className="heading">About</h2>
-								<p className="copy">Following a tradition going back over 10 years now, a student at my secondary school has managed the domain and website "isitweeka.com", and in 2020 that honour passed to a friend of mine, and I was asked to design the website. I also tasked myself with implementing a Google-free method of interfacing with the school's calendar, for privacy and maintainability purposes.</p>
+								{/* <p className="copy">Following a tradition going back over 10 years now, a student at my secondary school has managed the domain and website "isitweeka.com", and in 2020 that honour passed to a friend of mine, and I was asked to design the website. I also tasked myself with implementing a Google-free method of interfacing with the school's calendar, for privacy and maintainability purposes.</p> */}
+								<p className="copy">At the end of 2020, a friend of mine became the latest student of my secondary school to own and manage the domain "isitweeka.com".</p>
+								<p className="copy">He asked me to modernise and redesign the website, as well as help implement a number of new features.</p>
 								<h2 className="heading">Frameworks</h2>
 								<ul>
 									<li>React</li>
@@ -199,7 +201,8 @@ export class App extends React.Component<Props, State> {
 								</ul>
 							</div>
 							<div className="project-showcase">
-								<div style={{ height: "200vh" }} />
+								<h2 className="title">Main Landing Page</h2>
+								<img tabIndex={1} className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} />
 							</div>
 						</div>
 					</div>

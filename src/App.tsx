@@ -75,12 +75,17 @@ export class App extends React.Component<Props, State> {
 						</div>
 					</div>
 					<div className="navbar" style={{ top: 0, overflow: "visible", backgroundColor: "inherit" }}>{this.signatureHeading()}</div>
-					<div style={{ height: "20vh" }}>
+					<div style={{ minHeight: "20vh" }}>
 						{/* <h2 className="signature invisible">I'm Madeline Hart.</h2> */} {/* accomodate accessibilty and layout */}
 						<div style={{ justifyContent: "flex-start", alignContent: "center" }}>
 							{/* <h2 className="signature">I'm Madeline Hart.</h2> */}
 							{/* {this.signatureHeading()} */}
-							<p className="copy">I make websites, and this is my portfolio.</p>
+							<p className="copy">I'm a front-end web developer and UX designer, and this is my portfolio.</p>
+							{/* <p className="copy">I make websites & apps, and this is my portfolio.</p> */}
+							<p className="copy">This portfolio was made entirely in vanilla React JS.</p>
+							<p className="copy">I am highly skilled in React (Web & Native), and I have a passion for making elegant, frictionless, and calming user experiences.</p>
+							{/* <p className="copy">My web-development work is primarily focused on React.JS, and I have good experience in React-Native for mobile.</p>
+							<p className="copy">“Do one thing, and do it well”</p> */}
 						</div>
 					</div>
 					{/* TODO: Make work better on mobile */}

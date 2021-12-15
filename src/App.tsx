@@ -194,10 +194,10 @@ export class App extends React.Component<Props, State> {
 								<h1 className="title">June</h1>
 								<h4>July - Winter 2020</h4>
 								<h2 className="heading">About</h2>
-								<p className="copy">In 2006, Microsoft released the Zune. It was an interesting take on the portable music player, and by 2008 the visual style had evolved into what many today would recognise as "Metro", Microsoft's attempt at an ultra-minimalist user interface/experience. Zune was perhaps the best implmentation of the Metro design language, with a look that still feels modern and timeless today, 12 years later.</p>
-								<p className="copy">However, the Zune devices were discontinued in 2011, and the desktop software stopped receiving updates in 2012.</p>
-								<p className="copy">In 2020, I took Zune as a visual base, and attempted to build my own music playing software that could stand toe-to-toe with iTunes and WinAmp.</p>
-								<p className="copy">In some ways, I succeeded (The Windows version could play multiple tracks seamlessly, and on both Windows and Mac OS the music database was reliable and highly performant).</p>
+								{/* <p className="copy">In 2006, Microsoft released the Zune. It was an interesting take on the portable music player, and by 2008 the visual style had evolved into what many today would recognise as "Metro", Microsoft's attempt at an ultra-minimalist user interface/experience. Zune was perhaps the best implmentation of the Metro design language, with a look that still feels modern and timeless today, 12 years later.</p>
+								<p className="copy">However, the Zune devices were discontinued in 2011, and the desktop software stopped receiving updates in 2012.</p> */}
+								<p className="copy">In 2020, I took Zune as a design start-point, and attempted to build my own music playing software that could stand toe-to-toe with iTunes and WinAmp.</p>
+								<p className="copy">In many ways, I succeeded: the Windows version could play multiple tracks seamlessly, and on both Windows and Mac OS the music database was reliable and highly performant. The User Interface is stunningly clean and simple, but due to the single-threaded and poor-performance nature of Javascript+Electron, playing music and attempting to animate the UI simultaneously resulted in a muddied mess.</p>
 								<h2 className="heading">Frameworks</h2>
 								<h3 className="heading">Desktop:</h3>
 								<ul>

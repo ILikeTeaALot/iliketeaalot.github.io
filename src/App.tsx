@@ -261,6 +261,36 @@ export class App extends React.Component<Props, State> {
 							</div>
 						</div>
 					</div>
+					<div className="page" /* style={{ opacity: this.state.showProjects ? 1 : 0 }} */>
+						<div className="project">
+							<div ref={this.sections[4]} data-background="#FFC118" className="project-info">
+								<h1 className="title">Drezr</h1>
+								<h4>Dec 2018 - Jan 2019</h4>
+								<h2 className="heading">About</h2>
+								<p className="copy">In December 2018, I was asked if I'd like to help with a startup idea. I jumped at the opportunity, being particularly young and naïve at the time.</p>
+								<p className="copy">I was given a detailed mockup of the site and finished an early prototype within 24 hours, although it was only a simple single-page website.</p>
+								<p className="copy">As of some time in late 2019/early 2020, the site is down.</p>
+								<h2 className="heading">Frameworks</h2>
+								<ul>
+									<li>React</li>
+									<li>Vanilla HTML/CSS/JS</li>
+								</ul>
+								<h2 className="heading">Platforms</h2>
+								<ul>
+									<li>Web</li>
+								</ul>
+								<h2 className="heading">Notable Libraries/APIs Used</h2>
+								<ul>
+									<li>PHP Backend for handling email form.</li>
+								</ul>
+							</div>
+							<div className="project-showcase">
+								<h2 className="title">Main Landing Page</h2>
+								<p className="copy">(Click to enlarge)</p>
+								{/* <img tabIndex={1} className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
+							</div>
+						</div>
+					</div>
 				</div>
 			</>
 		);

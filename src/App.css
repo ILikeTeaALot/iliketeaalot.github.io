@@ -120,6 +120,7 @@ a.main {
 	top: calc(var(--title-size) * 1.25);
 	font-size: var(--big-link-size);
 	line-height: 1.5;
+	height: calc(var(--big-link-size) * 1.5);
 	display: flex;
 	box-sizing: border-box;
 	/* grid-template-columns: repeat(auto-fill, minmax(, 1fr));
@@ -204,8 +205,8 @@ a.main {
 	min-height: 100vh;
 	display: flex;
 	overflow: visible;
+	margin-top: 40vh;
 	opacity: 0;
-	will-change: opacity;
 	transition-duration: 800ms;
 }
 
@@ -232,7 +233,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .project {
-	--y-position: calc(calc(var(--small-link-size) * 1.5) + calc(var(--title-size) * 1.25));
+	--y-position: calc(calc(var(--big-link-size) * 1.5) + calc(var(--title-size) * 1.25));
 	--fade-length: 80px;
 	display: flex;
 	justify-content: stretch;
@@ -264,8 +265,8 @@ h1, h2, h3, h4, h5, h6 {
 	border-color: var(--grey);
 	border-right-width: 1px;
 	border-right-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	/* border-bottom-width: 1px;
+	border-bottom-style: solid; */
 	padding: 60px 2rem;
 	/* margin: 20px 0; */
 	/* overflow-y: scroll; */
@@ -316,4 +317,21 @@ h1, h2, h3, h4, h5, h6 {
 	max-height: 96vh;
 	top: 0;
 	left: 0;
+}
+
+.centre-outer {
+	display: flex;
+	width: min(50vh, 50vw);
+	height: min(50vh, 50vw);
+	background: red;
+	justify-content: center;
+	align-content: center;
+}
+
+.centred {
+	display: flex;
+	width: min(20vh, 20vw);
+	height: min(20vh, 20vw);
+	background: green;
+	margin: auto;
 }

@@ -28,3 +28,57 @@ a {
 	color: inherit;
 	text-decoration: underline;
 }
+
+@media screen and (min-width: 1920px) {
+	:root {
+		font-size: 20px;
+	}
+}
+
+@media screen and (min-width: 2560px) {
+	:root {
+		font-size: 24px;
+	}
+}
+
+@media screen and (min-width: 3072px) {
+	:root {
+		font-size: 28px;
+	}
+}
+
+@media screen and (min-width: 3840px) {
+	:root {
+		font-size: 32px;
+	}
+}
+
+@media screen and (min-width: 3840px) {
+	:root {
+		font-size: 36px;
+	}
+}
+
+@media screen and (min-width: 4480px) {
+	:root {
+		font-size: 40px;
+	}
+}
+
+@media screen and (min-width: 5120px) {
+	:root {
+		font-size: 44px;
+	}
+}
+
+@media screen and (min-width: 6016px) {
+	:root {
+		font-size: 48px;
+	}
+}
+
+@media screen and (min-width: 7680px) {
+	:root {
+		font-size: 52px;
+	}
+}

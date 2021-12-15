@@ -135,12 +135,14 @@ export class App extends React.Component<Props, State> {
 						<div style={{ justifyContent: "flex-start", alignContent: "center" }}>
 							{/* <h2 className="signature">I'm Madeline Hart.</h2> */}
 							{/* {this.signatureHeading()} */}
-							<p className="copy">I'm a front-end web developer and UX designer, and this is my portfolio.</p>
-							{/* <p className="copy">I make websites & apps, and this is my portfolio.</p> */}
-							<p className="copy">This portfolio was made entirely in vanilla React JS.</p>
-							<p className="copy">I am highly skilled in React (Web & Native), and I have a passion for making elegant, frictionless, and calming user experiences.</p>
-							{/* <p className="copy">My web-development work is primarily focused on React.JS, and I have good experience in React-Native for mobile.</p>
-							<p className="copy">“Do one thing, and do it well”</p> */}
+							<p className="about">I'm a front-end web developer and UX designer, and I am highly skilled in React (Web & Native), as well as having a passion for making elegant, frictionless, and enjoyable user experiences.</p>
+							{/* <p className="about">I'm a front-end web developer and UX designer, and this is my portfolio.</p> */}
+							{/* <p className="about">I make websites & apps, and this is my portfolio.</p> */}
+							{/* <p className="about">This portfolio was made entirely in vanilla React JS.</p> */}
+							{/* <p className="about">I am highly skilled in React (Web & Native), and I have a passion for making elegant, frictionless, and calming user experiences.</p> */}
+							{/* <p className="about">N.B. None of the projects on this site use CSS or styling libraries. I prefer to do that myself to keep things slim.</p> */}
+							{/* <p className="about">My web-development work is primarily focused on React.JS, and I have good experience in React-Native for mobile.</p>
+							<p className="about">“Do one thing, and do it well”</p> */}
 						</div>
 					</div>
 					{/* TODO: Make work better on mobile */}

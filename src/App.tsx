@@ -150,7 +150,40 @@ export class App extends React.Component<Props, State> {
 						<div><a onClick={this.doNothing} href="/about">about</a></div>
 					</div>
 					<div className="padding" aria-hidden />
-					<div className="page" style={{ opacity: this.state.showProjects ? 1 : 0 }}>
+					<div className="page" /* style={{ opacity: this.state.showProjects ? 1 : 0 }} */>
+						<div className="project">
+							<div ref={this.sections[0]} data-background="#FFFFFF" className="project-info">
+								<h1 className="title">My Skills</h1>
+								<h4>2018 - Present</h4>
+								<h2 className="heading">Vertically Centring a Div</h2>
+								<p className="copy">It's often joked about how difficult it is to vertically centre an HTML "div" element. So here it is, right in front of you. Enjoy.</p>
+								<h2 className="heading">React</h2>
+								<p className="copy">As of December 2021, I have been using React for over 3 years, and have finished multiple projects.</p>
+								<h2 className="heading">React Native</h2>
+								<p className="copy">I also have about 18 months experience in React Native, as can be seen in MobileTrainTimes, and a number of smaller experiemental projects.</p>
+								<h2 className="heading">CSS</h2>
+								<p className="copy">I am highly skilled in CSS. Every projects' styles on this website were written from the ground up.</p>
+								<h2 className="heading">Git</h2>
+								<p className="copy">I have collaborated with multiple devlopers on several occasions.</p>
+								<h2 className="heading">Other Languages & Technologies</h2>
+								<ul>
+									<li>Node.JS Server+Desktop</li>
+									<li>C#/.NET Core</li>
+									<li>Rust</li>
+								</ul>
+							</div>
+							<div className="project-showcase">
+								<div>
+									<h2 className="title">Vertically Centred Div</h2>
+									<p className="copy">(Real HTML. Press F12 and open your inspector!)</p>
+									<div className="centre-outer">
+										<div className="centred" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="page" /* style={{ opacity: this.state.showProjects ? 1 : 0 }} */>
 						{/* <div>
 							<h1 className="heading">My work</h1>
 						</div> */}

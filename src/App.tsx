@@ -202,7 +202,6 @@ export class App extends React.Component<Props, State> {
 								<h3 className="heading">Desktop:</h3>
 								<ul>
 									<li>React</li>
-									<li>Complex CSS</li>
 									<li>Electron</li>
 									<li>Node.JS</li>
 								</ul>

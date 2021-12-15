@@ -57,6 +57,16 @@ export class App extends React.Component<Props, State> {
 		);
 	};
 
+	sections: React.RefObject<HTMLDivElement>[] = [
+		React.createRef<HTMLDivElement>(),
+		React.createRef<HTMLDivElement>(),
+		React.createRef<HTMLDivElement>(),
+		React.createRef<HTMLDivElement>(),
+		React.createRef<HTMLDivElement>(),
+	];
+
+	hello = React.createRef<HTMLDivElement>();
+
 	// Smaller numbers result in large-size links further down the page
 	// Original divisor was 1.4; It was too accurate
 	// Good values: 1.2, 1.4, 1.5
@@ -70,7 +80,7 @@ export class App extends React.Component<Props, State> {
 				<div className="main">
 					<div className="front-page">
 						{/* Navbar was here */}
-						<div style={{ justifyContent: "flex-end", alignContent: "center" }}>
+						<div style={{ justifyContent: "flex-end", alignContent: "center" }} data-signature ref={this.hello}>
 							<h1 className="signature">hello</h1>
 						</div>
 					</div>
@@ -100,7 +110,7 @@ export class App extends React.Component<Props, State> {
 							<h1 className="heading">My work</h1>
 						</div> */}
 						<div className="project">
-							<div className="project-info">
+							<div ref={this.sections[1]} data-background="#FFFFFF" className="project-info">
 								<h1 className="title">June</h1>
 								<h4>July - Winter 2020</h4>
 								<h2 className="heading">About</h2>
@@ -152,9 +162,9 @@ export class App extends React.Component<Props, State> {
 							</div>
 						</div>
 					</div>
-					<div className="page" style={{ opacity: this.state.showProjects ? 1 : 0 }}>
+					<div className="page" /* style={{ opacity: this.state.showProjects ? 1 : 0 }} */>
 						<div className="project">
-							<div className="project-info">
+							<div ref={this.sections[2]} data-background="#FFFFFF" className="project-info">
 								<h1 className="title">MobileTrainTimes</h1>
 								<h4>August - December 2020</h4>
 								<h2 className="heading">About</h2>
@@ -178,9 +188,9 @@ export class App extends React.Component<Props, State> {
 							</div>
 						</div>
 					</div>
-					<div className="page" style={{ opacity: this.state.showProjects ? 1 : 0 }}>
+					<div className="page" /* style={{ opacity: this.state.showProjects ? 1 : 0 }} */>
 						<div className="project">
-							<div className="project-info">
+							<div ref={this.sections[3]} data-background="#000000" data-color="#FFFFFF" className="project-info">
 								<h1 className="title">IsItWeekA.com</h1>
 								<h4>Dec 2020 - Present</h4>
 								<h2 className="heading">About</h2>

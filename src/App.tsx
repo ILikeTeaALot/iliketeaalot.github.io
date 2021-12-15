@@ -14,11 +14,51 @@ interface State {
 export class App extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
+		this.observer = new IntersectionObserver(this.handleObserver, { threshold: [0.1, 0.6, 1] });
+		this.helloObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1] });
+		// this.opacityObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1, 1] });
 		this.state = {
 			scrollPosition: window.scrollY,
 			showProjects: window.scrollY >= window.innerHeight / 2,
 		};
 	}
+
+	observer: IntersectionObserver;
+	// opacityObserver: IntersectionObserver;
+	helloObserver: IntersectionObserver;
+
+	handleObserver: IntersectionObserverCallback = (entries, observer) => {
+		for (const entry of entries) {
+			/// @ts-expect-error
+			if (entry.target.dataset.signature) {
+				if (entry.intersectionRatio > 0) {
+					document.body.style.backgroundColor = "var(--beige)";
+					document.body.style.color = "#000000";
+				} else {
+					document.body.style.backgroundColor = "#FFFFFF";
+					document.body.style.color = "#000000";
+				}
+				return;
+			}
+			/// @ts-expect-error
+			const intersectionRatio = entry.target.dataset.background === "#000000" ? 0.1 : 0.6;
+			if (entry.intersectionRatio >= 0.6) {
+				/// @ts-ignore
+				entry.target.parentElement.parentElement.style.opacity = 1;	
+			} else {
+				/// @ts-ignore
+				entry.target.parentElement.parentElement.style.opacity = 0;
+			}
+			if (entry.intersectionRatio >= intersectionRatio) {
+				console.log("element on screen");
+				/// @ts-ignore
+				document.body.style.backgroundColor = entry.target.dataset.background;
+				/// @ts-ignore
+				document.body.style.color = entry.target.dataset.color || "#000000";
+				return;
+			}
+		}
+	};
 
 	doNothing: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
 		e.preventDefault();
@@ -30,17 +70,22 @@ export class App extends React.Component<Props, State> {
 	};
 
 	handleScroll = () => {
-		if (window.scrollY > window.innerHeight / 2) {
-			document.body.style.backgroundColor = "#FFFFFF";
-		} else {
-			document.body.style.backgroundColor = "var(--beige)";
-		}
+		// if (window.scrollY > window.innerHeight / 2) {
+		// 	// document.body.style.backgroundColor = "#FFFFFF";
+		// } else {
+		// 	// document.body.style.backgroundColor = "var(--beige)";
+		// }
 		this.setState({ scrollPosition: window.scrollY, showProjects: window.scrollY >= window.innerHeight / 2 });
 	};
 
 	componentDidMount = () => {
 		document.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleScroll);
+		for (const section of this.sections) {
+			if (section.current !== null) this.observer.observe(section.current);
+		}
+		/// @ts-expect-error
+		this.helloObserver.observe(this.hello.current);
 	};
 
 	componentWillUnmount = () => {

@@ -82,9 +82,6 @@ export class App extends React.Component<Props, State> {
 	componentDidMount = () => {
 		document.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleScroll);
-		for (const section of this.sections) {
-			if (section.current !== null) this.observer.observe(section.current);
-		}
 		/// @ts-expect-error
 		this.helloObserver.observe(this.hello.current);
 	};
@@ -102,14 +99,6 @@ export class App extends React.Component<Props, State> {
 			</h2>
 		);
 	};
-
-	sections: React.RefObject<HTMLDivElement>[] = [
-		React.createRef<HTMLDivElement>(),
-		React.createRef<HTMLDivElement>(),
-		React.createRef<HTMLDivElement>(),
-		React.createRef<HTMLDivElement>(),
-		React.createRef<HTMLDivElement>(),
-	];
 
 	hello = React.createRef<HTMLDivElement>();
 

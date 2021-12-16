@@ -217,7 +217,24 @@ export class App extends React.Component<Props, State> {
 						{ type: "heading", content: "Notable Libraries/APIs Used" },
 						{ type: "list", content: ["Huxley 2 - For interfacing with the National Rail Enquiries \"Darwin\" system."] },
 					]}>
-						<div style={{ height: "200vh" }} />
+						<h2 className="title">Home</h2>
+						<section>
+							{/* <img className="software-image mobile-image" style={{ position: "absolute", top: 0, left: "20%" }} src={require("./screenshots/MobileTrainTimes/Dark/Home.png")?.default} />
+							<img className="software-image mobile-image" style={{ position: "absolute", top: "10vh", left: "40%" }} src={require("./screenshots/MobileTrainTimes/Light/Home.png")?.default} /> */}
+							<img className="software-image mobile-image" src={require("./screenshots/MobileTrainTimes/MobileTrainTimes Home.png")?.default} />
+						</section>
+						<h2 className="title">Search</h2>
+						<section>
+							<img className="software-image mobile-image" src={require("./screenshots/MobileTrainTimes/MobileTrainTimes Search.png")?.default} />
+							{/* <img className="software-image mobile-image" style={{ position: "absolute", transform: "scale(0.75)", top: "-5vh", left: "40%" }} src={require("./screenshots/MobileTrainTimes/Light/Search/Moor.png")?.default} />
+							<img className="software-image mobile-image" style={{ position: "absolute", transform: "scale(0.75)", top: 0, left: "20%" }} src={require("./screenshots/MobileTrainTimes/Dark/Search/WEY.png")?.default} />
+							<img className="software-image mobile-image" style={{ position: "absolute", transform: "scale(0.75)", top: "10vh", right: "20%" }} src={require("./screenshots/MobileTrainTimes/Dark/Search/Birmingham.png")?.default} />
+							<img className="software-image mobile-image" style={{ alignSelf: "center", justifySelf: "center", flex: 0, margin: "auto", transform: "scale(1)" }} src={require("./screenshots/MobileTrainTimes/Light/Search/London.png")?.default} /> */}
+						</section>
+						<h2 className="title">Train Information</h2>
+						<section>
+							<img className="software-image mobile-image" src={require("./screenshots/MobileTrainTimes/MobileTrainTimes Live Trains.png")?.default} />
+						</section>
 					</Page>
 					<Page background="#000000" colour="#FFFFFF" info={[
 						{ type: "title", content: "IsItWeekA.com" },

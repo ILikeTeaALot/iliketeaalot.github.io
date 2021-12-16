@@ -200,6 +200,10 @@ export class App extends React.Component<Props, State> {
 						<section>
 							<h2 className="title">Desktop Application</h2>
 						</section>
+						<section>
+							<h2 className="title">Big-Screen Concept</h2>
+							<img className="software-image concept-image" src={require("./concepts/June/Big Screen Concept.png")?.default} />
+						</section>
 					</Page>
 					<Page background="#FFFFFF" colour="#000000" info={[
 						{ type: "title", content: "MobileTrainTimes" },

@@ -6,6 +6,8 @@
 	--body-size-small: clamp(0.8rem, 4vw, 1rem);
 	--big-link-size: clamp(1.875rem, 15vw, 2.5rem);
 	--small-link-size: clamp(1.25rem, 10vw, 1.875rem);
+
+	--big-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.7);
 }
 
 #dynamic-background {
@@ -202,8 +204,7 @@ a.main {
 }
 
 .page {
-	min-height: 100vh;
-	display: flex;
+	/* min-height: 100vh; */
 	overflow: visible;
 	margin-top: 40vh;
 	opacity: 0;
@@ -242,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .project > div {
 	box-sizing: border-box;
-	margin: 0 1.5em 0 0;
+	margin: 0;
 	/* overflow-y: auto;
 	overscroll-behavior-y: auto; */
 }
@@ -288,13 +289,23 @@ h1, h2, h3, h4, h5, h6 {
 	flex: 1;
 	text-align: left;
 	/* max-height: calc(100vh - var(--y-position)); */
-	padding: 60px 0;
+	padding: 60px 1.5rem;
 	/* mask-mode: alpha;
 	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) var(--fade-length), rgba(0, 0, 0, 1) calc(100% - var(--fade-length)), rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 1) 1px, rgba(0, 0, 0, 1) 15px, rgba(0, 0, 0, 0) 15px, rgba(0, 0, 0, 0) 100%); */
+	overflow: hidden;
 }
 
 .project-showcase p {
 	margin-left: 0;
+}
+
+.project-showcase section {
+	position: relative;
+}
+
+.sticky {
+	background: inherit;
+	position: sticky;
 }
 
 .invisible {
@@ -317,6 +328,16 @@ h1, h2, h3, h4, h5, h6 {
 	max-height: 96vh;
 	top: 0;
 	left: 0;
+}
+
+.concept-image {
+	/* box-shadow: var(--big-shadow); */
+}
+
+.mobile-image {
+	/* max-height: 60vh; */
+	max-width: 70%;
+	margin: auto;
 }
 
 .centre-outer {

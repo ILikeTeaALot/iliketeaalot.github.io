@@ -15,7 +15,7 @@ interface State {
 export class App extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
-		this.observer = new IntersectionObserver(this.handleObserver, { threshold: [0.1, 0.6, 1] });
+		// this.observer = new IntersectionObserver(this.handleObserver, { threshold: [0.1, 0.6, 1] });
 		this.helloObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1] });
 		// this.opacityObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1, 1] });
 		this.state = {
@@ -24,7 +24,7 @@ export class App extends React.Component<Props, State> {
 		};
 	}
 
-	observer: IntersectionObserver;
+	// observer: IntersectionObserver;
 	// opacityObserver: IntersectionObserver;
 	helloObserver: IntersectionObserver;
 

@@ -4,20 +4,29 @@ type BlockType = "title" | "heading" | "subheading" | "date" | "copy";
 
 type ListType = "list";
 
-interface InfoBlock {
-	type: BlockType;
+interface BaseBlock<T extends string> {
+	type: T;
+}
+
+interface InfoBlock extends BaseBlock<BlockType> {
 	content: string;
 }
 
-interface ListBlock {
-	type: ListType;
+interface ListBlock extends BaseBlock<ListType> {
 	content: string[];
 }
+
+interface LinkBlock extends BaseBlock<"link"> {
+	content: string;
+	url: string;
+}
+
+type Block = InfoBlock | ListBlock | LinkBlock;
 
 interface PageProps {
 	background: string;
 	colour?: string;
-	info: Array<InfoBlock | ListBlock>;
+	info: Array<Block>;
 }
 
 interface PageState {
@@ -74,7 +83,7 @@ export class Page extends React.Component<PageProps, PageState> {
 		this.observer.observe(this.sectionRef.current as HTMLDivElement);
 	};
 
-	renderProjectInfo = (block: InfoBlock | ListBlock, index: number) => {
+	renderProjectInfo = (block: Block, index: number) => {
 		switch (block.type) {
 			case "title":
 				return <h1 key={index} className="title">{block.content}</h1>;
@@ -94,6 +103,8 @@ export class Page extends React.Component<PageProps, PageState> {
 						))}
 					</ul>
 				);
+			case "link":
+				return <a key={index} href={block.url} style={{ margin: "0.5em 0", display: "inline-flex" }} target="_blank" rel="noreferrer">{block.content}</a>;
 		}
 	};
 

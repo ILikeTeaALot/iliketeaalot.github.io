@@ -239,6 +239,7 @@ export class App extends React.Component<Props, State> {
 					<Page background="#000000" colour="#FFFFFF" info={[
 						{ type: "title", content: "IsItWeekA.com" },
 						{ type: "date", content: "Dec 2020 - Present" },
+						{ type: "link", content: "View Live Website >", url: "https://www.isitweeka.com/" },
 						{ type: "heading", content: "About" },
 						{ type: "copy", content: "At the end of 2020, a friend of mine became the latest student of my secondary school to own and manage the domain \"isitweeka.com\"." },
 						{ type: "copy", content: "He asked me to modernise and redesign the website, as well as help implement a number of new features." },

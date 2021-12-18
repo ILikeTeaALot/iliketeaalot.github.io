@@ -116,7 +116,7 @@ export class App extends React.Component<Props, State> {
 			<>
 				{/* <div id="dynamic-background" style={{ background: this.state.scrollPosition > window.innerHeight / 2 ? "#FFFFFF" : "var(--beige)" }} /> */}
 				<div className="main" style={{ transform: "tanslateZ(0)" }}>
-					<div style={{ position: "fixed", bottom: 0, left: 0, right: 0, width: "100vw", pointerEvents: "none", transform: "rotateZ(-90deg)", transformOrigin: "center", display: "flex", placeContent: "center", justifyContent: "center", textAlign: "center", verticalAlign: "center", fontSize: 32, opacity: this.isAtTopOfPage() ? 1 : 0, transitionDuration: "800ms" }}>❮</div>
+					<div aria-hidden style={{ position: "fixed", bottom: 0, left: 0, right: 0, width: "100vw", pointerEvents: "none", transform: "rotateZ(-90deg)", transformOrigin: "center", display: "flex", placeContent: "center", justifyContent: "center", textAlign: "center", verticalAlign: "center", fontSize: 32, opacity: this.isAtTopOfPage() ? 1 : 0, transitionDuration: "800ms" }}>❮</div>
 					<div className="front-page">
 						{/* Navbar was here */}
 						<div style={{ justifyContent: "flex-end", alignContent: "center" }} data-signature ref={this.hello}>

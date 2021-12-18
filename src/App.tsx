@@ -188,14 +188,14 @@ export class App extends React.Component<Props, State> {
 						<section>
 							<h2 className="title">Website Concept</h2>
 							<p className="copy">(Click to enlarge)</p>
-							<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Website Concept.png")?.default} />
+								<img className="software-image concept-image" src={require("./concepts/June/Website Concept.png")?.default} />
 						</section>
 						<section>
 							<h2 className="title">Mobile Concepts</h2>
 							<p className="copy">(Click to enlarge)</p>
-							<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Home.png")?.default} />
-							<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Now Playing.png")?.default} />
-							<img tabIndex={1} className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Quickplay - With Pins.png")?.default} />
+								<img className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Home.png")?.default} />
+								<img className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Now Playing.png")?.default} />
+								<img className="software-image concept-image" src={require("./concepts/June/Mobile Concept/Quickplay - With Pins.png")?.default} />
 						</section>
 						<section>
 							<h2 className="title">Desktop Application</h2>
@@ -251,7 +251,7 @@ export class App extends React.Component<Props, State> {
 						{ type: "list", content: ["Raw iCal Parsing."] },
 					]}>
 						<h2 className="title">Main Landing Page</h2>
-						<img tabIndex={1} className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} />
+							<img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} />
 					</Page>
 					<Page background="#FFC118" colour="#000000" info={[
 						{ type: "title", content: "Drezr" },
@@ -269,7 +269,7 @@ export class App extends React.Component<Props, State> {
 					]}>
 						<h2 className="title">Main Landing Page</h2>
 						<p className="copy">(Click to enlarge)</p>
-						{/* <img tabIndex={1} className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
+							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
 					</Page>
 				</div>
 			</>

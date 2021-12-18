@@ -351,8 +351,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .centre-outer {
 	display: flex;
-	width: min(50vh, 50vw);
-	height: min(50vh, 50vw);
+	width: min(20vh, 20vw);
+	height: min(20vh, 20vw);
 	background: red;
 	justify-content: center;
 	align-content: center;
@@ -360,8 +360,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .centred {
 	display: flex;
-	width: min(20vh, 20vw);
-	height: min(20vh, 20vw);
+	width: min(10vh, 10vw);
+	height: min(10vh, 10vw);
 	background: green;
 	margin: auto;
 }

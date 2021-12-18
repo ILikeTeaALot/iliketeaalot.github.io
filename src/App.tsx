@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Page } from "./components/Page";
+import { VCDiv } from "./components/VerticallyCentredDiv";
 import "./fonts/fonts.css";
 
 interface Props {
@@ -164,8 +165,7 @@ export class App extends React.Component<Props, State> {
 						<div>
 							<h2 className="title">Vertically Centred Div</h2>
 							<p className="copy">(Real HTML. Press F12 and open your inspector!)</p>
-							<div className="centre-outer">
-								<div className="centred" />
+								<VCDiv />
 							</div>
 						</div>
 					</Page>

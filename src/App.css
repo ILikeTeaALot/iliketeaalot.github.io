@@ -203,6 +203,13 @@ a.main {
 	height: 20vh;
 }
 
+.page-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 40vh;
+	grid-gap: 40vh;
+}
+
 .page {
 	/* min-height: 100vh; */
 	overflow: visible;

@@ -246,6 +246,7 @@ export class App extends React.Component<Props, State> {
 						{ type: "heading", content: "About" },
 						{ type: "copy", content: "At the end of 2020, a friend of mine became the latest student of my secondary school to own and manage the domain \"isitweeka.com\"." },
 						{ type: "copy", content: "He asked me to modernise and redesign the website, as well as help implement a number of new features." },
+							{ type: "copy", content: "My design responsibilities included the typography, layout, and colour." },
 						{ type: "heading", content: "Frameworks" },
 						{ type: "list", content: ["React"] },
 						{ type: "heading", content: "Platforms" },

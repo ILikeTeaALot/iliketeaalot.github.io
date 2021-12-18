@@ -213,7 +213,7 @@ a.main {
 .page {
 	/* min-height: 100vh; */
 	overflow: visible;
-	margin-top: 40vh;
+	/* margin-top: 40vh; */
 	opacity: 0;
 	transition-duration: 800ms;
 }

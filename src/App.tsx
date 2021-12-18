@@ -146,6 +146,7 @@ export class App extends React.Component<Props, State> {
 						<div><a onClick={this.doNothing} href="/about">about</a></div>
 					</div>
 					<div className="padding" aria-hidden />
+					<section className="page-container">
 					<Page background="#FFFFFF" colour="#000000" info={[
 						{ type: "title", content: "My Skills" },
 						{ type: "date", content: "2018 - Present" },
@@ -273,6 +274,7 @@ export class App extends React.Component<Props, State> {
 						<p className="copy">(Click to enlarge)</p>
 							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
 					</Page>
+					</section>
 				</div>
 			</>
 		);

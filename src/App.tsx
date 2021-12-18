@@ -209,7 +209,7 @@ export class App extends React.Component<Props, State> {
 						{ type: "title", content: "MobileTrainTimes" },
 						{ type: "date", content: "August - December 2020" },
 						{ type: "heading", content: "About" },
-						{ type: "copy", content: "In addition to computers, I have been interested in trains for about as long as I can remember. MobileTrainTimes is an amalgamation of two of those two interests; It is designed to be the simplest, most elegant rail journey planning and information app available." },
+							{ type: "copy", content: "In addition to computers, I have been interested in trains for about as long as I can remember. MobileTrainTimes is an amalgamation of those two interests; It is designed to be the simplest, most elegant rail journey planning and information app available." },
 						{ type: "heading", content: "Frameworks" },
 						{ type: "list", content: ["React Native"] },
 						{ type: "heading", content: "Platforms" },

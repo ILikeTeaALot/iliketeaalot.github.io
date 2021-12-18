@@ -283,8 +283,8 @@ h1, h2, h3, h4, h5, h6 {
 	mask-mode: alpha;
 	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) var(--fade-length), rgba(0, 0, 0, 1) calc(100% - var(--fade-length)), rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 1) 1px, rgba(0, 0, 0, 1) 15px, rgba(0, 0, 0, 0) 15px, rgba(0, 0, 0, 0) 100%);
 	/* -webkit-overflow-scrolling: touch; */
-	scroll-snap-align: end;
-	scroll-snap-stop: always;
+	/* scroll-snap-align: end;
+	scroll-snap-stop: always; */
 }
 
 /* .project-info .scroll-container {

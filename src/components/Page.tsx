@@ -27,10 +27,12 @@ interface PageProps {
 	background: string;
 	colour?: string;
 	info: Array<Block>;
+	id?: string;
+	visible?: boolean;
 }
 
 interface PageState {
-
+	showPage: boolean;
 }
 
 export class Page extends React.Component<PageProps, PageState> {
@@ -38,6 +40,9 @@ export class Page extends React.Component<PageProps, PageState> {
 		super(props);
 		this.observer = new IntersectionObserver(this.handleObserver, { threshold: [0.1, 0.6, 1] });
 		this.helloObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1] });
+		this.state = {
+			showPage: false,
+		};
 	}
 
 	observer: IntersectionObserver;
@@ -46,32 +51,16 @@ export class Page extends React.Component<PageProps, PageState> {
 
 	handleObserver: IntersectionObserverCallback = (entries, observer) => {
 		for (const entry of entries) {
-			/// @ts-expect-error
-			if (entry.target.dataset.signature) {
-				if (entry.intersectionRatio > 0) {
-					document.body.style.backgroundColor = "var(--beige)";
-					document.body.style.color = "#000000";
-				} else {
-					document.body.style.backgroundColor = "#FFFFFF";
-					document.body.style.color = "#000000";
-				}
-				return;
-			}
-			/// @ts-expect-error
-			const intersectionRatio = entry.target.dataset.background === "#000000" ? 0.1 : 0.6;
+			const intersectionRatio = this.props.background === "#000000" ? 0.1 : 0.6;
 			if (entry.intersectionRatio >= 0.6) {
-				/// @ts-ignore
-				entry.target.parentElement.parentElement.style.opacity = 1;
+				this.setState({ showPage: true });
 			} else {
-				/// @ts-ignore
-				entry.target.parentElement.parentElement.style.opacity = 0;
+				this.setState({ showPage: false });
 			}
 			if (entry.intersectionRatio >= intersectionRatio) {
 				console.log("element on screen");
-				/// @ts-ignore
-				document.body.style.backgroundColor = entry.target.dataset.background;
-				/// @ts-ignore
-				document.body.style.color = entry.target.dataset.color || "#000000";
+				document.body.style.backgroundColor = this.props.background;
+				document.body.style.color = this.props.colour || "#000000";
 				return;
 			}
 		}
@@ -110,9 +99,9 @@ export class Page extends React.Component<PageProps, PageState> {
 
 	render = () => {
 		return (
-			<div className="page" /* style={{ opacity: this.state.showProjects ? 1 : 0 }} */>
+			<div className="page" data-visible={this.props.visible} data-showPage={this.state.showPage} id={this.props.id} style={{ opacity: this.props.visible === undefined ? (this.state.showPage ? 1 : 0) : (this.props.visible ? 1 : 0) }}>
 				<div className="project">
-					<div ref={this.sectionRef} data-background={this.props.background} data-color={this.props.colour} className="project-info">
+					<div ref={this.sectionRef} className="project-info">
 						{this.props.info.map(this.renderProjectInfo)}
 					</div>
 					<div className="project-showcase">

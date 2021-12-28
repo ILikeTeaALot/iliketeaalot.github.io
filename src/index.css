@@ -11,7 +11,9 @@ body {
 	/* -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale; */
 	transition-duration: 800ms;
-	will-change: background-color;
+	transition-property: background;
+	/* will-change: background-color; */
+	/* overflow: hidden; */
 }
 
 #root {

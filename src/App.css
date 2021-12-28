@@ -8,6 +8,49 @@
 	--small-link-size: clamp(1.25rem, 10vw, 1.875rem);
 
 	--big-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.7);
+
+	--y-position: calc(calc(var(--big-link-size) * 1.5) + calc(var(--title-size) * 1.25));
+	--fade-length: 80px;
+}
+
+@keyframes welcome-hello {
+	from {
+		transform: translateY(50%);
+	}
+	
+	to {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes welcome-signature {
+	from {
+		opacity: 0;
+	}
+	
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes welcome-other {
+	from {
+
+	}
+	
+	to {
+		
+	}
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateY(32px) rotateZ(-90deg);
+	}
+	
+	to {
+		transform: translateY(0) rotateZ(-90deg);
+	}
 }
 
 #dynamic-background {
@@ -35,12 +78,28 @@
 	z-index: 10000;
 }
 
+.fade-in {
+	animation: welcome-signature 1.5s ease-out 1.5s;
+	animation-fill-mode: both;
+	opacity: 0;
+}
+
+.slide-in {
+	animation: slide-in 0.4s ease-in-out 2s;
+	animation-fill-mode: both;
+}
+
 div.main {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	min-height: 100vh;
+	/* height: 100vh;
+	max-height: 100vh; */
+	/* overflow-x: hidden;
+	overflow-y: auto; */
+	overscroll-behavior: auto;
 	text-align: center;
 	z-index: 2;
 	background-color: inherit;
@@ -60,6 +119,8 @@ h1.signature {
 	font-size: var(--big-title-size);
 	line-height: 1;
 	overflow: visible;
+	animation: welcome-signature 1s ease-out 0s, welcome-hello 1s ease-in-out 1s;
+	animation-fill-mode: both;
 }
 
 h1.signature::after {
@@ -79,6 +140,7 @@ h2.signature {
 	top: 0;
 	white-space: pre;
 	/* line-height: 1; */
+	animation-delay: 1s;
 }
 
 h2.signature > div {
@@ -208,6 +270,7 @@ a.main {
 	grid-template-columns: 1fr;
 	gap: 40vh;
 	grid-gap: 40vh;
+	background: inherit;
 }
 
 .page {
@@ -241,8 +304,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .project {
-	--y-position: calc(calc(var(--big-link-size) * 1.5) + calc(var(--title-size) * 1.25));
-	--fade-length: 80px;
 	display: flex;
 	justify-content: stretch;
 	align-self: stretch;
@@ -285,6 +346,22 @@ h1, h2, h3, h4, h5, h6 {
 	/* -webkit-overflow-scrolling: touch; */
 	/* scroll-snap-align: end;
 	scroll-snap-stop: always; */
+}
+
+#about {
+	position: fixed;
+	top: var(--y-position);
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	background-color: inherit;
+	width: 100vw;
+	transform: translateY(100vh) opacity(0);
+}
+
+#about[data-visible=true] {
+	transform: translateY(0vh) opacity(1);
 }
 
 /* .project-info .scroll-container {

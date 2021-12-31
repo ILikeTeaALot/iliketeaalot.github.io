@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { NewNav } from "./components/NewNav/Main";
-import { Panel } from "./components/NewNav/Panel";
+import { ListNav } from "./components/NewListNav";
+import { ListNavItem } from "./components/NewListNav/ListNavItem";
 import { Page } from "./components/Page";
 import { VCDiv } from "./components/VerticallyCentredDiv";
 import "./fonts/fonts.css";
@@ -42,8 +42,8 @@ export class App extends React.Component<Props, State> {
 				document.body.style.color = "#000000";
 				this.setState({ showProjects: false });
 			} else {
-				document.body.style.backgroundColor = "#FFFFFF";
-				document.body.style.color = "#000000";
+				// document.body.style.backgroundColor = "#FFFFFF";
+				// document.body.style.color = "#000000";
 				this.setState({ showProjects: true });
 			}
 			// /// @ts-expect-error
@@ -80,9 +80,21 @@ export class App extends React.Component<Props, State> {
 		this.setState({ showAbout: true });
 	};
 
-	toggleMenu: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+	showMenu: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
 		e.preventDefault();
-		this.setState((prevState) => ({ showMenu: !prevState.showMenu }));
+		document.body.style.overflowY = "hidden";
+		this.setState({ showMenu: true });
+	};
+
+	handleMenuClick: React.MouseEventHandler = (e) => {
+		if (e.target !== e.currentTarget)
+		this.hideMenu(e);
+	}
+
+	hideMenu: React.MouseEventHandler = (e) => {
+		e.preventDefault();
+		document.body.style.overflowY = "auto";
+		this.setState({ showMenu: false });
 	};
 
 	hideAbout: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
@@ -142,7 +154,7 @@ export class App extends React.Component<Props, State> {
 				{/* <div id="dynamic-background" style={{ background: this.state.scrollPosition > window.innerHeight / 2 ? "#FFFFFF" : "var(--beige)" }} /> */}
 				<div className="main" style={{ transform: "tanslateZ(0)" }}>
 					<div className="slide-in" aria-hidden style={{ position: "fixed", bottom: 0, left: 0, right: 0, pointerEvents: "none", transform: "rotateZ(-90deg)", transformOrigin: "center", display: "flex", placeContent: "center", justifyContent: "center", textAlign: "center", verticalAlign: "center", fontSize: 32, opacity: this.isAtTopOfPage() ? 1 : 0, transitionDuration: "800ms" }}>❮</div>
-					<div className="front-page">
+					<div className="front-page" id="Hello">
 						{/* Navbar was here */}
 						<div style={{ justifyContent: "flex-end", alignContent: "center" }} data-signature ref={this.hello}>
 							<h1 className="signature">hello</h1>
@@ -154,7 +166,7 @@ export class App extends React.Component<Props, State> {
 						<div style={{ justifyContent: "flex-start", alignContent: "center" }}>
 							{/* <h2 className="signature">I'm Madeline Hart.</h2> */}
 							{/* {this.signatureHeading()} */}
-							<p className="about">I'm a front-end web developer and UX designer, and I am highly skilled in React (Web & Native), as well as having a passion for making elegant, frictionless, and enjoyable user experiences.</p>
+							<p className="about">I'm a front-end web developer and UX designer, and I am highly skilled in React (Web & Native), and I have a passion for making elegant, frictionless, and enjoyable user experiences.</p>
 							{/* <p className="about">I'm a front-end web developer and UX designer, and this is my portfolio.</p> */}
 							{/* <p className="about">I make websites & apps, and this is my portfolio.</p> */}
 							{/* <p className="about">This portfolio was made entirely in vanilla React JS.</p> */}
@@ -169,21 +181,23 @@ export class App extends React.Component<Props, State> {
 						{/* <div><a onClick={this.showAbout} href="/about">about</a></div>
 						<div><a onClick={this.scrollToProjects} href="/projects">view projects</a></div>
 						<div><a onClick={this.doNothing} href="/contact">contact</a></div> */}
-						<div><a onClick={this.toggleMenu} href="/home">menu</a></div>
+						<div><a onClick={this.showMenu} href="/home">navigation</a></div>
 					</div>
 					<div className="padding" aria-hidden />
-					<NewNav show={this.state.showMenu} onClose={this.toggleMenu}>
-						<Panel accent="var(--beige)">1. About</Panel>
-						<Panel accent="#FFFFFF">2. June</Panel>
-						<Panel accent="#FFFFFF">3. Mobile Train Times</Panel>
-						<Panel accent="#000000">4. Is It Week A</Panel>
-						<Panel accent="#000000">5. "Steam TV UI"</Panel>
-						<Panel accent="#2B2B2F">6. Rykan Mail</Panel>
-						<Panel accent="#2B2B2F">7. Rykan Search</Panel>
-						<Panel accent="#FFC118">8. Drezr</Panel>
-					</NewNav>
+					<ListNav show={this.state.showMenu} onClick={this.handleMenuClick}>
+						<ListNavItem accent="var(--beige)" to="#Hello">Hello</ListNavItem>
+						<ListNavItem accent="var(--beige)" to="#About">About</ListNavItem>
+						<ListNavItem accent="#FFFFFF" to="#June">June</ListNavItem>
+						<ListNavItem accent="#FFFFFF" to="#MobileTrainTimes">MobileTrainTimes</ListNavItem>
+						<ListNavItem accent="#000000" to="#IsItWeekA">IsItWeekA</ListNavItem>
+						{/* <ListNavItem accent="#000000" to="#SteamTV">"Steam TV UI"</ListNavItem> */}
+						<ListNavItem accent="#2B2B2F" to="#RykanMail">Rykan Mail</ListNavItem>
+						{/* <ListNavItem accent="#2B2B2F" to="#Rykan.Search">Rykan Search</ListNavItem> */}
+						<ListNavItem accent="#FFC118" to="#Drezr">Drezr</ListNavItem>
+						<ListNavItem accent="#FFC118" to="" onClick={this.hideMenu}>Back</ListNavItem>
+					</ListNav>
 					<section className="page-container">
-						<Page background="#FFFFFF" colour="#000000" /* id="about" visible={this.state.showAbout} */ info={[
+						<Page background="var(--beige)" colour="#000000" id="About" /* id="about" visible={this.state.showAbout} */ info={[
 							{ type: "title", content: "My Skills" },
 							{ type: "date", content: "2018 - Present" },
 							{ type: "heading", content: "Vertically Centring a Div" },
@@ -211,7 +225,7 @@ export class App extends React.Component<Props, State> {
 								<p className="copy">(Real HTML. Press F12 and open your inspector!)</p>
 							</div>
 						</Page>
-						<Page background="#FFFFFF" colour="#000000" info={[
+						<Page background="#FFFFFF" colour="#000000" id="June" info={[
 							{ type: "title", content: "June" },
 							{ type: "date", content: "July - Winter 2020" },
 							{ type: "heading", content: "About" },
@@ -247,7 +261,7 @@ export class App extends React.Component<Props, State> {
 								<img className="software-image concept-image" src={require("./concepts/June/Big Screen Concept.png")?.default} />
 							</section>
 						</Page>
-						<Page background="#FFFFFF" colour="#000000" info={[
+						<Page background="#FFFFFF" colour="#000000" id="MobileTrainTimes" info={[
 							{ type: "title", content: "MobileTrainTimes" },
 							{ type: "date", content: "August - December 2020" },
 							{ type: "heading", content: "About" },
@@ -278,7 +292,7 @@ export class App extends React.Component<Props, State> {
 								<img className="software-image mobile-image" src={require("./screenshots/MobileTrainTimes/MobileTrainTimes Live Trains.png")?.default} />
 							</section>
 						</Page>
-						<Page background="#000000" colour="#FFFFFF" info={[
+						<Page background="#000000" colour="#FFFFFF" id="IsItWeekA" info={[
 							{ type: "title", content: "IsItWeekA.com" },
 							{ type: "date", content: "Dec 2020 - Present" },
 							{ type: "link", content: "View Website ->", url: "https://isitweeka.com/" },
@@ -294,9 +308,26 @@ export class App extends React.Component<Props, State> {
 							{ type: "list", content: ["Raw iCal Parsing."] },
 						]}>
 							<h2 className="title">Main Landing Page</h2>
-							<img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} />
+							<object data="https://isitweeka.com/" style={{ width: "calc(calc(100% - var(--info-width)) - calc(var(--showcase-padding-h) * 2))", height: "70vh", position: "absolute", left: "calc(var(--info-width) + var(--showcase-padding-h))", outline: "2px solid var(--grey)" }} />
+							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
 						</Page>
-						<Page background="#FFC118" colour="#000000" info={[
+						<Page background="#2B2B2F" colour="#FFFFFF" id="RykanMail" info={[
+							{ type: "title", content: "Rykan Mail, Calendar, and Chat" },
+							{ type: "date", content: "Dec 2019" },
+							{ type: "link", content: "View Demo ->", url: "/demos/RykanMail" },
+							{ type: "heading", content: "About" },
+							{ type: "copy", content: "Lorem ipsum dolor sit amet" },
+							{ type: "heading", content: "Frameworks" },
+							{ type: "list", content: ["React"] },
+							{ type: "heading", content: "Platforms" },
+							{ type: "list", content: ["Web"] },
+						]}>
+							<section>
+								<h2 className="title">Big-Screen Concept</h2>
+								<img className="software-image concept-image" src={require("./concepts/June/Big Screen Concept.png")?.default} />
+							</section>
+						</Page>
+						<Page background="#FFC118" colour="#000000" id="Drezr" info={[
 							{ type: "title", content: "Drezr" },
 							{ type: "date", content: "Dec 2018 - Jan 2019" },
 							{ type: "heading", content: "About" },

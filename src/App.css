@@ -4,13 +4,19 @@
 	--heading-size: 0;
 	--body-size: clamp(1rem, 5vw, 1.25rem);
 	--body-size-small: clamp(0.8rem, 4vw, 1rem);
+	/* Navbar */
 	--big-link-size: clamp(1.875rem, 15vw, 2.5rem);
 	--small-link-size: clamp(1.25rem, 10vw, 1.875rem);
-
+	/* Shadow */
 	--big-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.7);
-
+	/* Project Descriptions */
 	--y-position: calc(calc(var(--big-link-size) * 1.5) + calc(var(--title-size) * 1.25));
 	--fade-length: 80px;
+	--info-width: min(100%, 22.5rem);
+	--info-padding-h: 2rem;
+	--info-padding-v: 60px;
+	--showcase-padding-h: 1.5rem;
+	--showcase-padding-v: 60px;
 }
 
 @keyframes welcome-hello {
@@ -74,6 +80,10 @@
 	top: 0;
 	left: 0;
 	right: 0; */
+	margin-left: var(--info-width);
+	margin-right: 0;
+	padding-right: var(--info-width);
+	flex: 1;
 	background-color: inherit;
 	z-index: 10000;
 }
@@ -190,8 +200,8 @@ a.main {
 	/* grid-template-columns: repeat(auto-fill, minmax(, 1fr));
 	grid-template-rows: 1fr; */
 	flex-wrap: wrap;
-	margin: auto;
-	width: 100%;
+	/* margin: auto; */
+	/* width: 100%; */
 	/* max-width: min(100%, 50rem); */
 	place-items: center;
 	place-content: center;
@@ -208,24 +218,26 @@ a.main {
 .links::after{
 	content: "";
 	opacity: 0;
-	transition-duration: 0ms;
-	transition-delay: 400ms;
+	/* transition-duration: 0ms; */
+	transition-duration: 800ms;
+	background-color: inherit;
+	/* transition-delay: 400ms; */
+}
+
+.links::after {
+	content: "";
+	width: 100%;
+	height: 1rem;
+	/* background: linear-gradient(to bottom, #FFFF 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%); */
+	position: absolute;
+	top: 100%;
+	left: 0;
+	opacity: 1;
+	/* transition-delay: 800ms; */
 }
 
 .links.small {
 	font-size: var(--small-link-size);
-}
-
-.links.small::after {
-	content: "";
-	width: 100%;
-	height: 64px;
-	background: linear-gradient(to bottom, #FFFF 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);
-	position: absolute;
-	top: 100%;
-	/* opacity: 1; */
-	transition-duration: 400ms;
-	transition-delay: 800ms;
 }
 
 .links div {
@@ -239,7 +251,7 @@ a.main {
 
 .links a {
 	margin: 0 auto;
-	font-weight: 200;
+	font-weight: 300;
 	place-self: center;
 	transition-duration: 800ms;
 }
@@ -278,6 +290,7 @@ a.main {
 	overflow: visible;
 	/* margin-top: 40vh; */
 	opacity: 0;
+	/* padding-top: var(--y-position); */
 	transition-duration: 800ms;
 }
 
@@ -319,12 +332,15 @@ h1, h2, h3, h4, h5, h6 {
 .project-info {
 	position: sticky;
 	/* calc(height of nav links (font-size * line-height) + height of h2.signature (font-size * line-height)) */
-	top: var(--y-position);
+	/* top: var(--y-position); */
+	top: 0;
 	bottom: 0;
-	min-width: min(100%, 22.5rem);
+	min-width: var(--info-width);
 	/* min-width: max-content; */
-	width: min(100%, 22.5rem);
-	max-height: calc(100vh - var(--y-position));
+	width: var(--info-width);
+	/* max-height: calc(100vh - var(--y-position)); */
+	max-height: 100vh;
+	min-height: 100vh;
 	/* max-width: min(100%, 22.5rem);
 	flex: 1; */
 	flex-shrink: 0;
@@ -336,13 +352,14 @@ h1, h2, h3, h4, h5, h6 {
 	border-right-style: solid;
 	/* border-bottom-width: 1px;
 	border-bottom-style: solid; */
-	padding: 60px 2rem;
+	padding: var(--info-padding-v) var(--info-padding-h);
+	padding-top: var(--y-position);
 	/* margin: 20px 0; */
 	/* overflow-y: scroll; */
 	overflow-y: auto;
 	overscroll-behavior-y: auto;
 	mask-mode: alpha;
-	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) var(--fade-length), rgba(0, 0, 0, 1) calc(100% - var(--fade-length)), rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 1) 1px, rgba(0, 0, 0, 1) 15px, rgba(0, 0, 0, 0) 15px, rgba(0, 0, 0, 0) 100%);
+	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) var(--fade-length), rgba(0, 0, 0, 1) calc(100% - var(--fade-length)), rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 1) 1px, rgba(0, 0, 0, 1) 20px, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 100%);
 	/* -webkit-overflow-scrolling: touch; */
 	/* scroll-snap-align: end;
 	scroll-snap-stop: always; */
@@ -375,7 +392,8 @@ h1, h2, h3, h4, h5, h6 {
 	flex: 1;
 	text-align: left;
 	/* max-height: calc(100vh - var(--y-position)); */
-	padding: 60px 1.5rem;
+	padding: var(--showcase-padding-v) var(--showcase-padding-h);
+	padding-top: var(--y-position);
 	/* mask-mode: alpha;
 	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) var(--fade-length), rgba(0, 0, 0, 1) calc(100% - var(--fade-length)), rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 1) 1px, rgba(0, 0, 0, 1) 15px, rgba(0, 0, 0, 0) 15px, rgba(0, 0, 0, 0) 100%); */
 	overflow: hidden;

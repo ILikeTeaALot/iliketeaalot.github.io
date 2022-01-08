@@ -242,7 +242,7 @@ export class App extends React.Component<Props, State> {
 							{ type: "date", content: "July - Winter 2020" },
 							{ type: "heading", content: "About" },
 							{ type: "copy", content: "In 2020, I took Zune as a design start-point, and attempted to build my own music playing software that could stand toe-to-toe with iTunes and WinAmp." },
-							{ type: "copy", content: "In many ways, I succeeded: the Windows version could play multiple tracks seamlessly, and on both Windows and Mac OS the music database was reliable and highly performant. The User Interface is stunningly clean and simple, but due to the single-threaded and poor-performance nature of Javascript+Electron, playing music and attempting to animate the UI simultaneously resulted in a muddied mess." },
+							{ type: "copy", content: "In many ways, I succeeded: the Windows version could play multiple tracks seamlessly, and on both Windows and Mac OS the music database was reliable and highly performant. The User Interface is stunningly clean and simple, but due to the single-threaded and poor-performance nature of Javascript+Electron, playing music and attempting to animate the UI simultaneously resulted in the application stuttering." },
 							{ type: "heading", content: "Frameworks" },
 							{ type: "subheading", content: "Desktop:" },
 							{ type: "list", content: ["React", "Electron", "Node.js"] },

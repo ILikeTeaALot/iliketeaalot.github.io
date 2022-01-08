@@ -48,7 +48,7 @@
 
 .list-nav li:hover {
 	/* transform: scale(1.125); */
-	text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
+	text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .list-nav a {

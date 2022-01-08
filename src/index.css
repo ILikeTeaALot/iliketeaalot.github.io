@@ -3,6 +3,10 @@
 	--grey: #696969;
 }
 
+html {
+	overscroll-behavior: contain;
+}
+
 body {
 	margin: 0;
 	background-color: var(--beige);
@@ -14,6 +18,7 @@ body {
 	transition-property: background;
 	/* will-change: background-color; */
 	/* overflow: hidden; */
+	overscroll-behavior: contain;
 }
 
 #root {

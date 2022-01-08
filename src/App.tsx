@@ -192,7 +192,7 @@ export class App extends React.Component<Props, State> {
 						{/* <div><a onClick={this.showAbout} href="/about">about</a></div>
 						<div><a onClick={this.scrollToProjects} href="/projects">view projects</a></div>
 						<div><a onClick={this.doNothing} href="/contact">contact</a></div> */}
-						<div><a onClick={this.showMenu} href="/home">navigation</a></div>
+						<div><a onClick={this.showMenu} href="/index">index</a></div>
 					</div>
 					<div className="padding" aria-hidden />
 					<ListNav show={this.state.showMenu} onClick={this.handleMenuClick}>
@@ -320,7 +320,7 @@ export class App extends React.Component<Props, State> {
 							{ type: "list", content: ["Raw iCal Parsing."] },
 						]}>
 							<h2 className="title">Main Landing Page</h2>
-							<object data="https://isitweeka.com/" style={{ width: "calc(calc(100% - var(--info-width)) - calc(var(--showcase-padding-h) * 2))", height: "70vh", position: "absolute", left: "calc(var(--info-width) + var(--showcase-padding-h))", outline: "2px solid var(--grey)" }} />
+							<object data="https://isitweeka.com?autoDeclineCookies" style={{ width: "calc(calc(100% - var(--info-width)) - calc(var(--showcase-padding-h) * 2))", height: "70vh", position: "absolute", left: "calc(var(--info-width) + var(--showcase-padding-h))", outline: "2px solid var(--grey)" }} />
 							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
 						</Page>
 						<Page background="#2B2B2F" colour="#FFFFFF" id="RykanMail" info={[

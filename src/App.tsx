@@ -15,6 +15,7 @@ interface State {
 	showProjects: boolean;
 	showAbout: boolean;
 	showMenu: boolean;
+	hasLoaded: boolean;
 }
 
 export class App extends React.Component<Props, State> {
@@ -28,6 +29,7 @@ export class App extends React.Component<Props, State> {
 			showProjects: window.scrollY >= window.innerHeight / 2,
 			showAbout: false,
 			showMenu: false,
+			hasLoaded: false,
 		};
 	}
 
@@ -88,8 +90,8 @@ export class App extends React.Component<Props, State> {
 
 	handleMenuClick: React.MouseEventHandler = (e) => {
 		if (e.target !== e.currentTarget)
-		this.hideMenu(e);
-	}
+			this.hideMenu(e);
+	};
 
 	hideMenu: React.MouseEventHandler = (e) => {
 		e.preventDefault();
@@ -116,12 +118,20 @@ export class App extends React.Component<Props, State> {
 		this.setState({ scrollPosition: window.scrollY, /* showProjects: window.scrollY >= window.innerHeight / 2 */ });
 	};
 
+	handleLoad = () => {
+		this.setState({ hasLoaded: true }, () => {
+			document.documentElement.style.overflowY = "";
+		});
+	};
+
 	componentDidMount = () => {
 		/// @ts-expect-error
 		this.helloObserver.observe(this.hello.current);
 		window.scrollTo(0, 0);
+		document.documentElement.style.overflowY = "hidden";
 		document.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleScroll);
+		window.addEventListener("load", this.handleLoad);
 	};
 
 	componentWillUnmount = () => {
@@ -152,7 +162,7 @@ export class App extends React.Component<Props, State> {
 		return (
 			<>
 				{/* <div id="dynamic-background" style={{ background: this.state.scrollPosition > window.innerHeight / 2 ? "#FFFFFF" : "var(--beige)" }} /> */}
-				<div className="main" style={{ transform: "tanslateZ(0)" }}>
+				<div className={this.state.hasLoaded ? "main" : "main not-loaded"} style={{ transform: "tanslateZ(0)" }}>
 					<div className="slide-in" aria-hidden style={{ position: "fixed", bottom: 0, left: 0, right: 0, pointerEvents: "none", transform: "rotateZ(-90deg)", transformOrigin: "center", display: "flex", placeContent: "center", justifyContent: "center", textAlign: "center", verticalAlign: "center", fontSize: 32, opacity: this.isAtTopOfPage() ? 1 : 0, transitionDuration: "800ms" }}>❮</div>
 					<div className="front-page" id="Hello">
 						{/* Navbar was here */}
@@ -160,6 +170,7 @@ export class App extends React.Component<Props, State> {
 							<h1 className="signature">hello</h1>
 						</div>
 					</div>
+					<div style={{ position: "fixed", bottom: 0, right: 0, textAlign: "right", opacity: this.state.hasLoaded ? 0 : 1 }}><h2 className="loading title">Loading...</h2></div>
 					<div className="navbar fade-in" style={{ top: 0, overflow: "visible", backgroundColor: "inherit" }}>{this.signatureHeading()}</div>
 					<div className="fade-in" style={{ minHeight: "20vh" }}>
 						{/* <h2 className="signature invisible">I'm Madeline Hart.</h2> */} {/* accomodate accessibilty and layout */}
@@ -194,6 +205,7 @@ export class App extends React.Component<Props, State> {
 						<ListNavItem accent="#2B2B2F" to="#RykanMail">Rykan Mail</ListNavItem>
 						{/* <ListNavItem accent="#2B2B2F" to="#Rykan.Search">Rykan Search</ListNavItem> */}
 						<ListNavItem accent="#FFC118" to="#Drezr">Drezr</ListNavItem>
+						<ListNavItem accent="#FFC118" to="#Contact">Contact</ListNavItem>
 						<ListNavItem accent="#FFC118" to="" onClick={this.hideMenu}>Back</ListNavItem>
 					</ListNav>
 					<section className="page-container">
@@ -345,6 +357,18 @@ export class App extends React.Component<Props, State> {
 							<h2 className="title">Main Landing Page</h2>
 							<p className="copy">(Click to enlarge)</p>
 							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
+						</Page>
+						<Page background="#000000" colour="#FFFFFF" id="Contact" info={[
+							{ type: "title", content: "Contact Details" },
+							{ type: "heading", content: "E-mail" },
+							{ type: "copy", content: "contact [at] madelinehart [dot] co.uk" },
+							{ type: "heading", content: "Social Media" },
+							{ type: "copy", content: "Sorry, I don't use social media." },
+							{ type: "heading", content: "Github" },
+							{ type: "link", content: "I go by ILikeTeaALot on Github", url: "https://github.com/iliketeaalot" },
+						]}>
+							<h1 className="title">The Fancy Method</h1>
+							<p className="copy">If you'd prefer to contact me via an HTTP(S) request, go ahead!</p>
 						</Page>
 					</section>
 				</div>

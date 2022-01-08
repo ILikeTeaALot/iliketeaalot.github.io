@@ -89,14 +89,23 @@
 }
 
 .fade-in {
-	animation: welcome-signature 1.5s ease-out 1.5s;
+	animation: welcome-signature 2.5s ease-out 2.5s;
 	animation-fill-mode: both;
 	opacity: 0;
 }
 
 .slide-in {
-	animation: slide-in 0.4s ease-in-out 2s;
+	animation: slide-in 0.8s ease-in-out 3s;
 	animation-fill-mode: both;
+}
+
+div.main.not-loaded * {
+	animation-play-state: paused;
+}
+
+object {
+	overscroll-behavior: none;
+	overflow-y: auto;
 }
 
 div.main {
@@ -219,7 +228,7 @@ a.main {
 	content: "";
 	opacity: 0;
 	/* transition-duration: 0ms; */
-	transition-duration: 800ms;
+	/* transition-duration: 800ms; */
 	background-color: inherit;
 	/* transition-delay: 400ms; */
 }
@@ -306,12 +315,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .title {
-	margin: 0.5em 0;
+	margin: 0.5rem 0;
 	font-size: var(--title-size);
 }
 
 .heading {
-	margin: 0.5em 0;
+	margin: 0.5rem 0;
+}
+
+.loading {
+	margin: 0.5rem;
+	color: var(--grey);
 }
 
 

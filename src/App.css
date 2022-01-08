@@ -5,7 +5,8 @@
 	--body-size: clamp(1rem, 5vw, 1.25rem);
 	--body-size-small: clamp(0.8rem, 4vw, 1rem);
 	/* Navbar */
-	--big-link-size: clamp(1.875rem, 15vw, 2.5rem);
+	/* --big-link-size: clamp(1.875rem, 15vw, 2.5rem); */
+	--big-link-size: 2.5rem;
 	--small-link-size: clamp(1.25rem, 10vw, 1.875rem);
 	/* Shadow */
 	--big-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.7);
@@ -203,6 +204,8 @@ a.main {
 	top: calc(var(--title-size) * 1.25);
 	font-size: var(--big-link-size);
 	line-height: 1.5;
+	/* line-height: calc(var(--big-link-size) * 1.5); */
+	min-height: calc(var(--big-link-size) * 1.5);
 	height: calc(var(--big-link-size) * 1.5);
 	display: flex;
 	box-sizing: border-box;
@@ -225,7 +228,7 @@ a.main {
 }
 
 .links::after{
-	content: "";
+	/* content: ""; */
 	opacity: 0;
 	/* transition-duration: 0ms; */
 	/* transition-duration: 800ms; */
@@ -234,7 +237,7 @@ a.main {
 }
 
 .links::after {
-	content: "";
+	/* content: ""; */
 	width: 100%;
 	height: 1rem;
 	/* background: linear-gradient(to bottom, #FFFF 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%); */
@@ -247,6 +250,7 @@ a.main {
 
 .links.small {
 	font-size: var(--small-link-size);
+	height: calc(var(--big-link-size) * 1.5);
 }
 
 .links div {
@@ -289,8 +293,8 @@ a.main {
 .page-container {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 40vh;
-	grid-gap: 40vh;
+	/* gap: 40vh;
+	grid-gap: 40vh; */
 	background: inherit;
 }
 
@@ -299,7 +303,13 @@ a.main {
 	overflow: visible;
 	/* margin-top: 40vh; */
 	opacity: 0;
+	scroll-snap-align: start end;
+	/* scroll-snap-stop: both; */
 	/* padding-top: var(--y-position); */
+	height: 100vh;
+	overscroll-behavior: auto;
+	/* height: calc(100vh - var(--y-position)); */
+	/* margin-top: var(--y-position); */
 	transition-duration: 800ms;
 }
 
@@ -338,13 +348,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .project > div {
 	box-sizing: border-box;
-	margin: 0;
-	/* overflow-y: auto;
-	overscroll-behavior-y: auto; */
+	/* margin: 0; */
+	/* overflow-y: auto; */
+	overscroll-behavior-y: auto;
 }
 
 .project-info {
-	position: sticky;
+	/* position: sticky; */
 	/* calc(height of nav links (font-size * line-height) + height of h2.signature (font-size * line-height)) */
 	/* top: var(--y-position); */
 	top: 0;
@@ -407,10 +417,17 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: left;
 	/* max-height: calc(100vh - var(--y-position)); */
 	padding: var(--showcase-padding-v) var(--showcase-padding-h);
-	padding-top: var(--y-position);
+	/* padding-top: var(--y-position); */
+	padding-top: 0;
+	margin-top: var(--y-position);
+	/* height: 100vh; */
+	height: calc(100vh - var(--y-position));
+	overflow-y: auto;
+	overflow-x: hidden;
+	overscroll-behavior: auto;
 	/* mask-mode: alpha;
 	mask-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) var(--fade-length), rgba(0, 0, 0, 1) calc(100% - var(--fade-length)), rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 1) 1px, rgba(0, 0, 0, 1) 15px, rgba(0, 0, 0, 0) 15px, rgba(0, 0, 0, 0) 100%); */
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .project-showcase p {

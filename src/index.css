@@ -5,6 +5,8 @@
 
 html {
 	overscroll-behavior: contain;
+	scroll-snap-type: both mandatory;
+	overflow: hidden;
 }
 
 body {
@@ -16,9 +18,12 @@ body {
 	-moz-osx-font-smoothing: grayscale; */
 	transition-duration: 800ms;
 	transition-property: background;
+	/* overflow: visible;
+	height: 100vh; */
 	/* will-change: background-color; */
 	/* overflow: hidden; */
-	overscroll-behavior: contain;
+	/* overscroll-behavior: contain; */
+	scroll-snap-type: both mandatory;
 }
 
 #root {

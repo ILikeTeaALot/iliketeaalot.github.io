@@ -84,7 +84,7 @@ export class App extends React.Component<Props, State> {
 
 	showMenu: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
 		e.preventDefault();
-		document.body.style.overflowY = "hidden";
+		// document.documentElement.style.overflowY = "hidden";
 		this.setState({ showMenu: true });
 	};
 
@@ -95,7 +95,7 @@ export class App extends React.Component<Props, State> {
 
 	hideMenu: React.MouseEventHandler = (e) => {
 		e.preventDefault();
-		document.body.style.overflowY = "auto";
+		// document.documentElement.style.overflowY = "auto";
 		this.setState({ showMenu: false });
 	};
 
@@ -120,7 +120,7 @@ export class App extends React.Component<Props, State> {
 
 	handleLoad = () => {
 		this.setState({ hasLoaded: true }, () => {
-			document.documentElement.style.overflowY = "";
+			// document.documentElement.style.overflowY = "";
 		});
 	};
 
@@ -128,7 +128,7 @@ export class App extends React.Component<Props, State> {
 		/// @ts-expect-error
 		this.helloObserver.observe(this.hello.current);
 		window.scrollTo(0, 0);
-		document.documentElement.style.overflowY = "hidden";
+		// document.documentElement.style.overflowY = "hidden";
 		document.addEventListener("scroll", this.handleScroll);
 		window.addEventListener("resize", this.handleScroll);
 		window.addEventListener("load", this.handleLoad);
@@ -155,7 +155,7 @@ export class App extends React.Component<Props, State> {
 	// Good values: 1.2, 1.4, 1.5
 	useSmallLinks = () => this.state.scrollPosition >= window.innerHeight / 1.4;
 
-	isAtTopOfPage = () => this.state.scrollPosition < 4;
+	// isAtTopOfPage = () => this.state.scrollPosition < 4;
 
 	render() {
 		// <nav className="navbar" style={{ opacity: this.state.showProjects ? 1 : 0, /* transitionDelay: this.state.showProjects ? "820ms" : "0ms" */ }}>{this.signatureHeading()}</nav>
@@ -163,7 +163,7 @@ export class App extends React.Component<Props, State> {
 			<>
 				{/* <div id="dynamic-background" style={{ background: this.state.scrollPosition > window.innerHeight / 2 ? "#FFFFFF" : "var(--beige)" }} /> */}
 				<div className={this.state.hasLoaded ? "main" : "main not-loaded"} style={{ transform: "tanslateZ(0)" }}>
-					<div className="slide-in" aria-hidden style={{ position: "fixed", bottom: 0, left: 0, right: 0, pointerEvents: "none", transform: "rotateZ(-90deg)", transformOrigin: "center", display: "flex", placeContent: "center", justifyContent: "center", textAlign: "center", verticalAlign: "center", fontSize: 32, opacity: this.isAtTopOfPage() ? 1 : 0, transitionDuration: "800ms" }}>❮</div>
+					{/* <div className="slide-in" aria-hidden style={{ position: "fixed", bottom: 0, left: 0, right: 0, pointerEvents: "none", transform: "rotateZ(-90deg)", transformOrigin: "center", display: "flex", placeContent: "center", justifyContent: "center", textAlign: "center", verticalAlign: "center", fontSize: 32, opacity: this.isAtTopOfPage() ? 1 : 0, transitionDuration: "800ms" }}>❮</div> */}
 					<div className="front-page" id="Hello">
 						{/* Navbar was here */}
 						<div style={{ justifyContent: "flex-end", alignContent: "center" }} data-signature ref={this.hello}>

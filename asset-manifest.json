@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e21a1686.chunk.css",
+    "main.js": "/static/js/main.2f40c4f0.chunk.js",
+    "main.js.map": "/static/js/main.2f40c4f0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f2ae3005.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f2ae3005.js.map",
+    "static/js/2.2f15a3e2.chunk.js": "/static/js/2.2f15a3e2.chunk.js",
+    "static/js/2.2f15a3e2.chunk.js.map": "/static/js/2.2f15a3e2.chunk.js.map",
+    "static/js/3.10ec6195.chunk.js": "/static/js/3.10ec6195.chunk.js",
+    "static/js/3.10ec6195.chunk.js.map": "/static/js/3.10ec6195.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e21a1686.chunk.css.map": "/static/css/main.e21a1686.chunk.css.map",
+    "static/js/2.2f15a3e2.chunk.js.LICENSE.txt": "/static/js/2.2f15a3e2.chunk.js.LICENSE.txt",
+    "static/media/Big Screen Concept.png": "/static/media/Big Screen Concept.16a5aa0a.png",
+    "static/media/fonts.css": "/static/media/Jost-VF.a4f728f4.ttf",
+    "static/media/Home.png": "/static/media/Home.aa0d1ff5.png",
+    "static/media/MobileTrainTimes Home.png": "/static/media/MobileTrainTimes Home.45508cf7.png",
+    "static/media/MobileTrainTimes Live Trains.png": "/static/media/MobileTrainTimes Live Trains.6871f66d.png",
+    "static/media/MobileTrainTimes Search.png": "/static/media/MobileTrainTimes Search.a6af39ed.png",
+    "static/media/Now Playing.png": "/static/media/Now Playing.f77b1ffa.png",
+    "static/media/Quickplay - With Pins.png": "/static/media/Quickplay - With Pins.720ac98f.png",
+    "static/media/Website Concept.png": "/static/media/Website Concept.3e738038.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f2ae3005.js",
+    "static/js/2.2f15a3e2.chunk.js",
+    "static/css/main.e21a1686.chunk.css",
+    "static/js/main.2f40c4f0.chunk.js"
+  ]
+}

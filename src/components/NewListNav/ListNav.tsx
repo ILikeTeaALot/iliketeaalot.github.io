@@ -9,9 +9,9 @@ interface Props {
 
 export const ListNav: React.FunctionComponent<Props> = (props) => {
 	return (
-		<div className="list-nav" style={{ opacity: props.show ? 1 : 0 }} onClick={props.onClick}>
+		<div className="list-nav" style={{ opacity: props.show ? 1 : 0, pointerEvents: props.show ? "all" : "none" }} onClick={props.onClick}>
 			<div id="nav-top"></div>
-			<ul style={{ pointerEvents: props.show ? "all" : "none" }}>
+			<ul>
 				{props.children}
 			</ul>
 			<div id="nav-bottom"></div>

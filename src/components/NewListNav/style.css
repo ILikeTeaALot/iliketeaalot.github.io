@@ -37,13 +37,16 @@
 .list-nav ul {
 	display: flex;
 	flex-direction: column;
-	margin: auto;
+	width: 100vw;
+	margin: 0 auto;
 	/* text-align: left; */
 	list-style: none;
+	padding: 0;
 }
 
 .list-nav li {
 	transition-duration: 200ms;
+	cursor: default;
 }
 
 .list-nav li:hover {
@@ -57,6 +60,7 @@
 	/* line-height: 1; */
 	text-decoration: none;
 	/* margin: 0.5rem 0; */
+	cursor: default;
 	transition-duration: 200ms;
 }
 

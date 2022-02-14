@@ -22,7 +22,7 @@ export class App extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
 		// this.observer = new IntersectionObserver(this.handleObserver, { threshold: [0.1, 0.6, 1] });
-		this.helloObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1] });
+		this.helloObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 1] });
 		// this.opacityObserver = new IntersectionObserver(this.handleObserver, { threshold: [0, 0.1, 1] });
 		this.state = {
 			scrollPosition: window.scrollY,
@@ -42,6 +42,8 @@ export class App extends React.Component<Props, State> {
 			if (entry.intersectionRatio > 0) {
 				document.body.style.backgroundColor = "var(--beige)";
 				document.body.style.color = "#000000";
+				// document.body.style.backgroundColor = "#000000";
+				// document.body.style.color = "#FFFFFF";
 				this.setState({ showProjects: false });
 			} else {
 				// document.body.style.backgroundColor = "#FFFFFF";
@@ -78,7 +80,7 @@ export class App extends React.Component<Props, State> {
 
 	showAbout: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
 		e.preventDefault();
-		window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+		window.scrollTo({ top: window.innerHeight, behavior: "auto" });
 		this.setState({ showAbout: true });
 	};
 
@@ -106,7 +108,7 @@ export class App extends React.Component<Props, State> {
 
 	scrollToProjects: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
 		e.preventDefault();
-		window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+		window.scrollTo({ top: window.innerHeight, behavior: "auto" });
 	};
 
 	handleScroll = () => {
@@ -202,14 +204,14 @@ export class App extends React.Component<Props, State> {
 						<ListNavItem accent="#FFFFFF" to="#MobileTrainTimes">MobileTrainTimes</ListNavItem>
 						<ListNavItem accent="#000000" to="#IsItWeekA">IsItWeekA</ListNavItem>
 						{/* <ListNavItem accent="#000000" to="#SteamTV">"Steam TV UI"</ListNavItem> */}
-						<ListNavItem accent="#2B2B2F" to="#RykanMail">Rykan Mail</ListNavItem>
+						{/* <ListNavItem accent="#2B2B2F" to="#RykanMail">Rykan Mail</ListNavItem> */}
 						{/* <ListNavItem accent="#2B2B2F" to="#Rykan.Search">Rykan Search</ListNavItem> */}
-						<ListNavItem accent="#FFC118" to="#Drezr">Drezr</ListNavItem>
+						{/* <ListNavItem accent="#FFC118" to="#Drezr">Drezr</ListNavItem> */}
 						<ListNavItem accent="#FFC118" to="#Contact">Contact</ListNavItem>
 						<ListNavItem accent="#FFC118" to="" onClick={this.hideMenu}>Back</ListNavItem>
 					</ListNav>
 					<section className="page-container">
-						<Page background="var(--beige)" colour="#000000" id="About" /* id="about" visible={this.state.showAbout} */ info={[
+						<Page background="#000000" colour="#FFFFFF" id="About" /* id="about" visible={this.state.showAbout} */ info={[
 							{ type: "title", content: "My Skills" },
 							{ type: "date", content: "2018 - Present" },
 							{ type: "heading", content: "Vertically Centring a Div" },
@@ -278,6 +280,7 @@ export class App extends React.Component<Props, State> {
 							{ type: "date", content: "August - December 2020" },
 							{ type: "heading", content: "About" },
 							{ type: "copy", content: "In addition to computers, I have been interested in trains for about as long as I can remember. MobileTrainTimes is an amalgamation of those two interests; It is designed to be the simplest, most elegant rail journey planning and information app available." },
+							{ type: "copy", content: "The app uses an API called \"Huxley\" to interface with the National Rail systems." },
 							{ type: "heading", content: "Frameworks" },
 							{ type: "list", content: ["React Native"] },
 							{ type: "heading", content: "Platforms" },
@@ -320,10 +323,9 @@ export class App extends React.Component<Props, State> {
 							{ type: "list", content: ["Raw iCal Parsing."] },
 						]}>
 							<h2 className="title">Main Landing Page</h2>
-							<object data="https://isitweeka.com?autoDeclineCookies" style={{ width: "calc(calc(100% - var(--info-width)) - calc(var(--showcase-padding-h) * 2))", height: "70vh", position: "absolute", left: "calc(var(--info-width) + var(--showcase-padding-h))", outline: "2px solid var(--grey)" }} />
-							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
+							<object data="https://isitweeka.com?autoDeclineCookies" style={{ width: "calc(calc(100% - var(--info-width)) - calc(var(--showcase-padding-h) * 2))", height: "70vh", position: "absolute", left: "calc(var(--info-width) + var(--showcase-padding-h))", outline: "2px solid var(--grey)" }}>Live preview of https://isitweeka.com/</object>
 						</Page>
-						<Page background="#2B2B2F" colour="#FFFFFF" id="RykanMail" info={[
+						{/* <Page background="#2B2B2F" colour="#FFFFFF" id="RykanMail" info={[
 							{ type: "title", content: "Rykan Mail, Calendar, and Chat" },
 							{ type: "date", content: "Dec 2019" },
 							{ type: "link", content: "View Demo ->", url: "/demos/RykanMail" },
@@ -356,8 +358,7 @@ export class App extends React.Component<Props, State> {
 						]}>
 							<h2 className="title">Main Landing Page</h2>
 							<p className="copy">(Click to enlarge)</p>
-							{/* <img className="software-image concept-image" src={require("./screenshots/IsItWeekA/main.png")?.default} /> */}
-						</Page>
+						</Page> */}
 						<Page background="#000000" colour="#FFFFFF" id="Contact" info={[
 							{ type: "title", content: "Contact Details" },
 							{ type: "heading", content: "E-mail" },
